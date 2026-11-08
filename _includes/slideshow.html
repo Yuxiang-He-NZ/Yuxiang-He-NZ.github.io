@@ -1,0 +1,149 @@
+<style>
+  .post-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 4 / 3;
+    margin: 20px auto;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .post-slideshow .slides {
+    position: absolute;
+    inset: 0;
+  }
+
+  .post-slideshow .slide {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post-slideshow .slide.active {
+    display: flex;
+  }
+
+  /* Override Chirpy image styling */
+  .post-slideshow .slide img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .post-slideshow .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 35px 65px 18px;
+    color: white;
+    text-align: center;
+    font-size: 0.95rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .post-slideshow button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 2;
+  }
+
+  .post-slideshow .prev {
+    left: 10px;
+  }
+  .post-slideshow .next {
+    right: 10px;
+  }
+
+  .post-slideshow .counter {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    z-index: 2;
+  }
+</style>
+
+<div class="post-slideshow">
+  <div class="slides">{{ include.content }}</div>
+
+  <button class="prev" type="button" aria-label="Previous image">
+    &#10094;
+  </button>
+
+  <button class="next" type="button" aria-label="Next image">&#10095;</button>
+
+  <div class="counter"></div>
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll(".post-slideshow").forEach((slideshow) => {
+      if (slideshow.dataset.initialized) return;
+      slideshow.dataset.initialized = "true";
+
+      const slides = slideshow.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        const img = slide.querySelector("img");
+        const description = slide.querySelector(".description");
+
+        if (img && description) {
+          img.alt = description.textContent.trim();
+        }
+      });
+      const counter = slideshow.querySelector(".counter");
+      let current = 0;
+
+      if (slides.length === 0) return;
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === current);
+        });
+
+        counter.textContent = `${current + 1} / ${slides.length}`;
+      }
+
+      slideshow.querySelector(".prev").addEventListener("click", () => {
+        showSlide(current - 1);
+      });
+
+      slideshow.querySelector(".next").addEventListener("click", () => {
+        showSlide(current + 1);
+      });
+
+      showSlide(0);
+    });
+  })();
+</script>

@@ -1,9 +1,12 @@
 ---
 title: "Morphing Wing"
-date: 2026-11-08 00:00:00 +1100
+date: 2026-4-14 00:00:00 +1100
 categories: [Engineering, Mechanical Design]
 tags: [solidworks, arduino, aerodynamics]
 description: "A group project exploring a wing that changes its camber to adjust the lift it generates."
+featured: true
+show_image: true
+image: /assets/lib/posts/morphing-wing/wing4.png
 ---
 
 ## Overview
@@ -22,13 +25,34 @@ This project helped me improve my SolidWorks skills and gain more experience wit
 
 ## Project Gallery
 
-<!-- Add CAD renders, prototype photos, or a demonstration video here. -->
+{% capture gallery %}
+<div class="slide">
+  <img src="/assets/lib/posts/morphing-wing/wing4.png">
+  <div class="description">
+    Final CAD of the wing
+  </div>
+</div>
 
-<!-- Example:
-![Morphing wing CAD model](/assets/img/projects/morphing-wing/cad-model.png)
-_CAD model of the morphing wing._
--->
+<div class="slide">
+  <img src="/assets/lib/posts/morphing-wing/wing3.png">
+  <div class="description">
+    physical wing product
+  </div>
+</div>
 
-## Further Details
+<div class="slide">
+  <img src="/assets/lib/posts/morphing-wing/wing2.png">
+  <div class="description">
+    wing prototype
+  </div>
+</div>
 
-<!-- Add the wing mechanism, materials, actuator details, and test results when available. -->
+<div class="slide">
+  <img src="/assets/lib/posts/morphing-wing/wing1.png">
+  <div class="description">
+    final CAD
+  </div>
+</div>
+{% endcapture %}
+
+{% include slideshow.html content=gallery %}

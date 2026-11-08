@@ -1,8 +1,8 @@
 ---
 title: "Dungeonmania"
-date: 2026-11-08 00:00:00 +1100
+date: 2026-8-14 00:00:00 +1100
 categories: [Computer Science, Software Development]
-tags: [java, oop, design-patterns, refactoring]
+tags: [java, oop, design-patterns, refactoring, Game Development]
 description: "A Java dungeon game involving interactive items and entities, developed as a programming project."
 ---
 
@@ -35,8 +35,24 @@ I found the project particularly interesting because I could apply these concept
 
 ## Project Gallery
 
-<!-- Add gameplay screenshots or a short demonstration here. -->
+{% capture gallery %}
+<div class="slide">
+  <img src="/assets/lib/posts/dungeonmania/dungenMania1.png">
+  <div class="description">
+    the actual Game
+  </div>
+</div>
+
+<div class="slide">
+  <img src="/assets/lib/posts/dungeonmania/dungenMania2.png">
+  <div class="description">
+    The homepage frontend
+  </div>
+
+</div>
+{% endcapture %}
+
+{% include slideshow.html content=gallery %}
 
 ## Further Details
-
-<!-- Add architecture diagrams, selected design patterns, and a source-code link if available. -->
+View the source code on [GitHub](https://github.com/Yuxiang-He-NZ/COMP2511/tree/main/assignment-ii-part-1).

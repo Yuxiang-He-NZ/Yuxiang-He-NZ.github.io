@@ -1,0 +1,109 @@
+---
+layout: default
+---
+
+{% include lang.html %} {% assign all_pinned = site.posts | where: 'pin', 'true'
+%} {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and
+item.hidden != true' %} {% assign posts = '' | split: '' %}
+
+<!-- Get pinned posts on current page -->
+
+{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page
+%} {% assign visible_end = visible_start | plus: paginator.per_page %} {% if
+all_pinned.size > visible_start %} {% if all_pinned.size > visible_end %} {%
+assign pinned_size = paginator.per_page %} {% else %} {% assign pinned_size =
+all_pinned.size | minus: visible_start %} {% endif %} {% for i in
+(visible_start..all_pinned.size) limit: pinned_size %} {% assign posts = posts |
+push: all_pinned[i] %} {% endfor %} {% else %} {% assign pinned_size = 0 %} {%
+endif %}
+
+<!-- Get normal posts on current page -->
+
+{% assign normal_size = paginator.posts | size | minus: pinned_size %} {% if
+normal_size > 0 %} {% if pinned_size > 0 %} {% assign normal_start = 0 %} {%
+else %} {% assign normal_start = visible_start | minus: all_pinned.size %} {%
+endif %} {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
+{% for i in (normal_start..normal_end) %} {% assign posts = posts | push:
+all_normal[i] %} {% endfor %} {% endif %}
+
+<div class="px-xl-1 mb-4">
+  <h1>About Me</h1>
+
+  <p>Hi, I'm Yuxiang!</p>
+
+  <p>
+    I'm currently studying a double degree in
+    <strong>Computer Science and Mechatronic Engineering</strong>
+    at the <strong>University of New South Wales (UNSW)</strong>. I'm passionate
+    about technology, problem-solving, and understanding how things work, from
+    software running behind the scenes to physical systems interacting with the
+    world.
+  </p>
+
+  <h2>Interests</h2>
+
+  <ul>
+    <li>
+      <strong>Software Development</strong> – Building applications, writing
+      efficient code, and exploring new technologies.
+    </li>
+    <li>
+      <strong>Robotics</strong> – Designing and programming systems that
+      interact with their environment.
+    </li>
+    <li>
+      <strong>Electronics</strong> – Working with microcontrollers, sensors,
+      motors, and embedded systems.
+    </li>
+    <li>
+      <strong>Engineering</strong> – Applying practical and theoretical
+      knowledge to solve real-world problems.
+    </li>
+  </ul>
+
+  <h2>for more</h2
+  <p>
+    hi
+  </p>
+</div>
+
+<!-- Featured Projects -->
+<div class="px-xl-1 mb-5">
+  <h2>Featured Projects</h2>
+
+  <p>Here are some projects I've worked on that I'd like to highlight. There is more to see on the projects tabs</p>
+
+  {% assign featured_projects = site.posts | where: 'featured', true %}
+
+  <div class="row">
+    {% for post in featured_projects %}
+      <div class="col-md-6 mb-4">
+        <a href="{{ post.url | relative_url }}" class="text-decoration-none">
+          <div class="card h-100">
+
+            {% if post.image %}
+              {% assign project_image = post.image.path | default: post.image %}
+              {% assign image_fit = post.image_fit | default: 'cover' %}
+
+              <img
+                src="{{ project_image | relative_url }}"
+                class="card-img-top"
+                alt="{{ post.title }}"
+                style="width: 100%; height: 220px; object-fit: {{ image_fit }};"
+              >
+            {% endif %}
+
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+
+              <p class="card-text">
+                {{ post.description | default: post.excerpt | strip_html | truncate: 120 }}
+              </p>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

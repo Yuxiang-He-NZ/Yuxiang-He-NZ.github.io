@@ -1,9 +1,11 @@
 ---
 title: "Image Changer"
-date: 2026-11-08 00:00:00 +1100
+date: 2025-12-10 00:00:00 +1100
 categories: [Computer Science, Low-Level Programming]
 tags: [mips, assembly, image-processing]
 description: "A MIPS assembly assignment implementing image manipulation and compression operations."
+featured: true
+image: /assets/lib/posts/image_changer/cat.png
 ---
 
 ## Overview
@@ -26,13 +28,29 @@ The assignment gave me practical experience with MIPS assembly and a better unde
 
 ## Project Gallery
 
-<!-- Add the original image and the outputs of the different transformations here. -->
+{% capture gallery %}
+<div class="slide">
+  <img src="/assets/lib/posts/image_changer/cat.png">
+  <div class="description">
+    The default image
+  </div>
+</div>
 
-<!-- Example:
-![Original image](/assets/img/projects/image-changer/original.png)
-![Grayscale result](/assets/img/projects/image-changer/grayscale.png)
--->
+<div class="slide">
+  <img src="/assets/lib/posts/image_changer/cat-compressed.png">
+  <div class="description">
+    compressed version of the cat
+  </div>
+</div>
 
+<div class="slide">
+  <img src="/assets/lib/posts/image_changer/cat-gray8.png">
+  <div class="description">
+    using the grayscale filter
+  </div>
+</div>
+{% endcapture %}
+
+{% include slideshow.html content=gallery %}
 ## Further Details
-
-<!-- Add the image format, compression method, and implementation details when available. -->
+View the source code on [GitHub](https://github.com/Yuxiang-He-NZ/COMP1521/tree/main/ass2).

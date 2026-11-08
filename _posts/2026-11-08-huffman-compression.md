@@ -1,9 +1,12 @@
 ---
 title: "Huffman Compression"
-date: 2026-11-08 00:00:00 +1100
+date: 2026-4-14 00:00:00 +1100
 categories: [Computer Science, Algorithms]
-tags: [huffman-coding, compression, trees, recursion]
+tags: [C, huffman-coding, compression, trees, recursion]
 description: "An algorithms assignment implementing Huffman encoding to compress a text file."
+featured: true
+image_fit: contain
+image: assets/lib/posts/huffman-compression/huffman1.png
 ---
 
 ## Overview
@@ -14,9 +17,9 @@ One of the most satisfying parts was seeing how much the file size could decreas
 
 ## How It Works
 
-Huffman encoding is a compression technique that assigns variable-length codes to symbols based on their frequencies. More frequent symbols receive shorter codes, while less frequent symbols receive longer codes.
+Huffman encoding is a compression technique that assigns variable-length codes to symbols based on their frequencies. More frequent symbols receive shorter codes, while less frequent symbols receive longer codes like below:
 
-<!-- Add your implementation's frequency table, tree construction, and encoding/decoding process here. -->
+![huffmanTree](/assets/lib/posts/huffman-compression/huffman1.png){: w="500" h="400" }
 
 ## Implementation
 
@@ -32,10 +35,6 @@ I enjoyed this assignment because it combined an interesting algorithm with a re
 
 It also helped strengthen my understanding of tree-based algorithms and recursion. This is one of the reasons algorithms became my favourite course topic.
 
-## Project Gallery
-
-<!-- Add a compression example, tree diagram, or terminal output here. -->
-
 ## Further Details
 
-<!-- Add the programming language, measured compression results, and a source-code link if available. -->
+View the source code on [GitHub](https://github.com/Yuxiang-He-NZ/COMP2521/tree/main/ass1).

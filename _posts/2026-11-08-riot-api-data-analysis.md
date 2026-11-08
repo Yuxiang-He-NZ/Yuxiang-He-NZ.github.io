@@ -1,6 +1,6 @@
 ---
 title: "Riot API Data Analysis"
-date: 2026-11-08 00:00:00 +1100
+date: 2024-11-08 00:00:00 +1100
 categories: [Computer Science, Data Analysis]
 tags: [api, python, data, prediction]
 description: "A high-school mathematics project that collected approximately 14,000 game data points using a game's API."
@@ -36,4 +36,5 @@ This project combined programming and data analysis with one of my personal inte
 
 ## Further Details
 
-<!-- Add the language, libraries, API details, and a link to the source code if available. -->
+
+View the source code on [GitHub](https://github.com/Yuxiang-He-NZ/Riot_API).

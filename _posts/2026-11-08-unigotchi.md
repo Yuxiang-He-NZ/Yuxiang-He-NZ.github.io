@@ -1,8 +1,8 @@
 ---
 title: "Unigotchi"
-date: 2026-11-08 00:00:00 +1100
+date: 2025-6-20 00:00:00 +1100
 categories: [Computer Science, Group Projects]
-tags: [javascript, typescript, api, multiplayer, teamwork]
+tags: [javascript, typescript, api, multiplayer, teamwork, Game Development]
 description: "A multiplayer virtual-pet game inspired by Tamagotchi, with a university-student theme."
 ---
 
@@ -32,8 +32,13 @@ Working as a group made this a particularly unique project. It gave me experienc
 
 ## Project Gallery
 
-<!-- Add screenshots of the game, UI, or a demonstration video here. -->
+{% capture gallery %}
+<div class="slide">
+  <img src="/assets/lib/posts/unigotchi/unigopchi1.png">
+  <div class="description">
+    the final frontend
+  </div>
+</div>
+{% endcapture %}
 
-## Further Details
-
-<!-- Add your individual responsibilities, frameworks, API design, and a source-code link if available. -->
+{% include slideshow.html content=gallery %}
