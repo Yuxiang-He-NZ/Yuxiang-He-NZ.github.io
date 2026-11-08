@@ -30,21 +30,24 @@ The assignment gave me practical experience with MIPS assembly and a better unde
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/image_changer/cat.png">
+  <img src="/assets/lib/posts/image_changer/cat.png"
+  alt="The default image">
   <div class="description">
     The default image
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/image_changer/cat-compressed.png">
+  <img src="/assets/lib/posts/image_changer/cat-compressed.png"
+  alt="compressed version of the cat">
   <div class="description">
     compressed version of the cat
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/image_changer/cat-gray8.png">
+  <img src="/assets/lib/posts/image_changer/cat-gray8.png" 
+  alt = "using the grayscale filter">
   <div class="description">
     using the grayscale filter
   </div>

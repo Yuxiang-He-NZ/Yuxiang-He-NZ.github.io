@@ -5,7 +5,6 @@ categories: [Engineering, Prototyping]
 tags: [hackathon, hardware, teamwork]
 description: "A novelty computer mouse built with my group for the Terrible Ideas Hackathon."
 featured: true
-show_image: true
 image: /assets/lib/posts/taser-mouse/mouse.png
 ---
 
@@ -26,21 +25,24 @@ Sorry the image is kinda bad :(
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/taser-mouse/mouse.png">
+  <img src="/assets/lib/posts/taser-mouse/mouse.png"
+  alt = "Final prototype of the mouse">
   <div class="description">
     Final prototype of the mouse
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/taser-mouse/mouse1.png">
+  <img src="/assets/lib/posts/taser-mouse/mouse1.png"
+  alt = "Trying to solder the electronics">
   <div class="description">
     Trying to solder the electronics
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/taser-mouse/mouse2.png">
+  <img src="/assets/lib/posts/taser-mouse/mouse2.png"
+  alt = "Scanning the mouse to create a case">
   <div class="description">
     Scanning the mouse to create a case
   </div>

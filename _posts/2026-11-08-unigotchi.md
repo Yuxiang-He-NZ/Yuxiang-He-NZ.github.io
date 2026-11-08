@@ -34,7 +34,8 @@ Working as a group made this a particularly unique project. It gave me experienc
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/unigotchi/unigopchi1.png">
+  <img src="/assets/lib/posts/unigotchi/unigopchi1.png"
+  alt = "the final frontend">
   <div class="description">
     the final frontend
   </div>

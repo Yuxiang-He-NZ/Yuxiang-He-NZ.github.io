@@ -37,14 +37,16 @@ I found the project particularly interesting because I could apply these concept
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/dungeonmania/dungenMania1.png">
+  <img src="/assets/lib/posts/dungeonmania/dungenMania1.png"
+  alt = "the actual Game">
   <div class="description">
     the actual Game
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/dungeonmania/dungenMania2.png">
+  <img src="/assets/lib/posts/dungeonmania/dungenMania2.png"
+  alt = "homepage frontend">
   <div class="description">
     The homepage frontend
   </div>

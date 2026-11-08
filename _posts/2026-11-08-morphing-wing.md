@@ -5,7 +5,6 @@ categories: [Engineering, Mechanical Design]
 tags: [solidworks, arduino, aerodynamics]
 description: "A group project exploring a wing that changes its camber to adjust the lift it generates."
 featured: true
-show_image: true
 image: /assets/lib/posts/morphing-wing/wing4.png
 ---
 
@@ -27,21 +26,24 @@ This project helped me improve my SolidWorks skills and gain more experience wit
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/morphing-wing/wing4.png">
+  <img src="/assets/lib/posts/morphing-wing/wing4.png" 
+  alt = "Final CAD of the wing">
   <div class="description">
     Final CAD of the wing
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/morphing-wing/wing3.png">
+  <img src="/assets/lib/posts/morphing-wing/wing3.png"
+  alt = "physical wing product">
   <div class="description">
     physical wing product
   </div>
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/morphing-wing/wing2.png">
+  <img src="/assets/lib/posts/morphing-wing/wing2.png"
+  alt = "wing prototype">
   <div class="description">
     wing prototype
   </div>
