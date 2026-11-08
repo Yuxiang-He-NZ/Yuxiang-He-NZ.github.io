@@ -50,7 +50,8 @@ This project helped me improve my SolidWorks skills and gain more experience wit
 </div>
 
 <div class="slide">
-  <img src="/assets/lib/posts/morphing-wing/wing1.png">
+  <img src="/assets/lib/posts/morphing-wing/wing1.png"
+  alt = "final CAD">
   <div class="description">
     final CAD
   </div>
