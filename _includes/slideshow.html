@@ -29,7 +29,7 @@
     display: flex;
   }
 
-  /* Override Chirpy image styling */
+  /* Image styling */
   .post-slideshow .slide img {
     position: absolute !important;
     top: 0 !important;
@@ -45,6 +45,23 @@
     border-radius: 0 !important;
   }
 
+  /* Video styling */
+  .post-slideshow .slide video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Description overlay */
   .post-slideshow .description {
     position: absolute;
     bottom: 0;
@@ -60,6 +77,7 @@
     z-index: 1;
   }
 
+  /* Navigation buttons */
   .post-slideshow button {
     position: absolute;
     top: 50%;
@@ -76,10 +94,12 @@
   .post-slideshow .prev {
     left: 10px;
   }
+
   .post-slideshow .next {
     right: 10px;
   }
 
+  /* Slide counter */
   .post-slideshow .counter {
     position: absolute;
     top: 12px;
@@ -96,11 +116,11 @@
 <div class="post-slideshow">
   <div class="slides">{{ include.content }}</div>
 
-  <button class="prev" type="button" aria-label="Previous image">
+  <button class="prev" type="button" aria-label="Previous slide">
     &#10094;
   </button>
 
-  <button class="next" type="button" aria-label="Next image">&#10095;</button>
+  <button class="next" type="button" aria-label="Next slide">&#10095;</button>
 
   <div class="counter"></div>
 </div>
@@ -112,21 +132,38 @@
       slideshow.dataset.initialized = "true";
 
       const slides = slideshow.querySelectorAll(".slide");
-      slides.forEach((slide) => {
-        const img = slide.querySelector("img");
-        const description = slide.querySelector(".description");
-
-        if (img && description) {
-          img.alt = description.textContent.trim();
-        }
-      });
       const counter = slideshow.querySelector(".counter");
       let current = 0;
 
       if (slides.length === 0) return;
 
+      // Configure images and videos
+      slides.forEach((slide) => {
+        const img = slide.querySelector("img");
+        const video = slide.querySelector("video");
+        const description = slide.querySelector(".description");
+
+        if (img && description) {
+          img.alt = description.textContent.trim();
+        }
+
+        if (video) {
+          video.controls = true;
+          video.preload = "metadata";
+        }
+      });
+
+      // Display selected slide
       function showSlide(index) {
+        const previous = current;
         current = (index + slides.length) % slides.length;
+
+        // Pause video when leaving a slide
+        const previousVideo = slides[previous].querySelector("video");
+        if (previousVideo) {
+          previousVideo.pause();
+          previousVideo.currentTime = 0;
+        }
 
         slides.forEach((slide, i) => {
           slide.classList.toggle("active", i === current);
@@ -135,14 +172,17 @@
         counter.textContent = `${current + 1} / ${slides.length}`;
       }
 
+      // Previous slide
       slideshow.querySelector(".prev").addEventListener("click", () => {
         showSlide(current - 1);
       });
 
+      // Next slide
       slideshow.querySelector(".next").addEventListener("click", () => {
         showSlide(current + 1);
       });
 
+      // Initialise slideshow
       showSlide(0);
     });
   })();

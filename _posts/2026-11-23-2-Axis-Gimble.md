@@ -5,7 +5,7 @@ categories: [Engineering, Mechanical Design]
 tags: [solidworks, arduino, soldering, manufacturing, esp32]
 description: "A project where I designed a two axis gimble."
 featured: true
-image: /assets/lib/posts/2-Axis-Gimble/gimbleCropped.jpg
+image: /assets/lib/posts/2-Axis-Gimble/gimbleHeadOnly.jpg
 ---
 
 ## Overview
@@ -29,11 +29,20 @@ After the prototype was assembled code also had to be written to control each ax
 
 This project helped me im multiple ways like what I mentioned in the overview. It really helped with my manufacturing skills as I had to basically make everything myself, I realised how much more challlenging it is to make somthing in real life as compared to the CAD.
 
+
 ## Project Gallery
 
 {% capture gallery %}
 <div class="slide">
-  <video controls>
+  <img src="/assets/lib/posts/2-Axis-Gimble/gimbleCropped.jpg"
+       alt="Final Gimble">
+  <div class="description">
+    Final product
+  </div>
+</div>
+
+<div class="slide">
+  <video controls preload="metadata">
     <source src="/assets/lib/posts/2-Axis-Gimble/finalGimbleVideo.mp4" type="video/mp4">
     Your browser does not support video playback.
   </video>
@@ -43,7 +52,7 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 </div>
 
 <div class="slide">
-  <video controls>
+  <video controls preload="metadata">
     <source src="/assets/lib/posts/2-Axis-Gimble/gimbleRotatingAllAxis.mp4" type="video/mp4">
     Your browser does not support video playback.
   </video>
@@ -54,7 +63,7 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 
 <div class="slide">
   <img src="/assets/lib/posts/2-Axis-Gimble/gimbleAssembly.png"
-  alt = "Gimble assembly drawing">
+       alt="Gimble assembly drawing">
   <div class="description">
     Gimble assembly drawing
   </div>
@@ -62,7 +71,7 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 
 <div class="slide">
   <img src="/assets/lib/posts/2-Axis-Gimble/GimbleDrawing.png"
-  alt = "Top V-frame CAD">
+       alt="Top V-frame CAD">
   <div class="description">
     Top V-frame CAD
   </div>
@@ -70,3 +79,4 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 {% endcapture %}
 
 {% include slideshow.html content=gallery %}
+
