@@ -43,7 +43,7 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 
 <div class="slide">
   <video controls preload="metadata">
-    <source src="/assets/lib/posts/2-Axis-Gimble/finalGimbleVideo.mp4" type="video/mp4">
+    <source src="/assets/lib/posts/2-Axis-Gimble/finalGimbleVideo_compressed.mp4" type="video/mp4">
     Your browser does not support video playback.
   </video>
   <div class="description">
@@ -53,7 +53,7 @@ This project helped me im multiple ways like what I mentioned in the overview. I
 
 <div class="slide">
   <video controls preload="metadata">
-    <source src="/assets/lib/posts/2-Axis-Gimble/gimbleRotatingAllAxis.mp4" type="video/mp4">
+    <source src="/assets/lib/posts/2-Axis-Gimble/gimbleRotatingAllAxis_compressed.mp4" type="video/mp4">
     Your browser does not support video playback.
   </video>
   <div class="description">
