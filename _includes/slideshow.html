@@ -29,10 +29,11 @@
     display: flex;
   }
 
-  /* Images */
+  /* Override Chirpy image styling */
   .post-slideshow .slide img {
     position: absolute !important;
-    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
@@ -44,21 +45,6 @@
     border-radius: 0 !important;
   }
 
-  /* Videos */
-  .post-slideshow .slide video {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Description */
   .post-slideshow .description {
     position: absolute;
     bottom: 0;
@@ -74,7 +60,6 @@
     z-index: 1;
   }
 
-  /* Navigation */
   .post-slideshow button {
     position: absolute;
     top: 50%;
@@ -91,12 +76,10 @@
   .post-slideshow .prev {
     left: 10px;
   }
-
   .post-slideshow .next {
     right: 10px;
   }
 
-  /* Counter */
   .post-slideshow .counter {
     position: absolute;
     top: 12px;
@@ -113,11 +96,11 @@
 <div class="post-slideshow">
   <div class="slides">{{ include.content }}</div>
 
-  <button class="prev" type="button" aria-label="Previous slide">
+  <button class="prev" type="button" aria-label="Previous image">
     &#10094;
   </button>
 
-  <button class="next" type="button" aria-label="Next slide">&#10095;</button>
+  <button class="next" type="button" aria-label="Next image">&#10095;</button>
 
   <div class="counter"></div>
 </div>
@@ -129,52 +112,34 @@
       slideshow.dataset.initialized = "true";
 
       const slides = slideshow.querySelectorAll(".slide");
-      const counter = slideshow.querySelector(".counter");
-      const prev = slideshow.querySelector(".prev");
-      const next = slideshow.querySelector(".next");
-
-      let current = 0;
-
-      if (slides.length === 0) return;
-
-      // Configure images and videos
       slides.forEach((slide) => {
         const img = slide.querySelector("img");
-        const video = slide.querySelector("video");
         const description = slide.querySelector(".description");
 
         if (img && description) {
           img.alt = description.textContent.trim();
         }
-
-        if (video) {
-          video.controls = true;
-          video.preload = "metadata";
-        }
       });
+      const counter = slideshow.querySelector(".counter");
+      let current = 0;
 
-      // Display slide
+      if (slides.length === 0) return;
+
       function showSlide(index) {
         current = (index + slides.length) % slides.length;
 
         slides.forEach((slide, i) => {
           slide.classList.toggle("active", i === current);
-
-          // Pause videos when leaving their slide
-          if (i !== current) {
-            const video = slide.querySelector("video");
-            if (video) video.pause();
-          }
         });
 
         counter.textContent = `${current + 1} / ${slides.length}`;
       }
 
-      prev.addEventListener("click", () => {
+      slideshow.querySelector(".prev").addEventListener("click", () => {
         showSlide(current - 1);
       });
 
-      next.addEventListener("click", () => {
+      slideshow.querySelector(".next").addEventListener("click", () => {
         showSlide(current + 1);
       });
 
