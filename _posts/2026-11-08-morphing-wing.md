@@ -2,7 +2,7 @@
 title: "Morphing Wing"
 date: 2026-4-14 00:00:00 +1100
 categories: [Engineering, Mechanical Design]
-tags: [solidworks, arduino, aerodynamics]
+tags: [solidworks, arduino, aerodynamics, manufacturing]
 description: "A group project exploring a wing that changes its camber to adjust the lift it generates."
 featured: true
 image: /assets/lib/posts/morphing-wing/wing4.png
@@ -26,7 +26,7 @@ This project helped me improve my SolidWorks skills and gain more experience wit
 
 {% capture gallery %}
 <div class="slide">
-  <img src="/assets/lib/posts/morphing-wing/wing4.png" 
+  <img src="/assets/lib/posts/morphing-wing/wing4.png"
   alt = "Final CAD of the wing">
   <div class="description">
     Final CAD of the wing

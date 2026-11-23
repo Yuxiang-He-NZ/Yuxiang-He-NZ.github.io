@@ -60,50 +60,47 @@ all_normal[i] %} {% endfor %} {% endif %}
       knowledge to solve real-world problems.
     </li>
   </ul>
-
-  <h2>for more</h2
-  <p>
-    hi
-  </p>
 </div>
 
 <!-- Featured Projects -->
 <div class="px-xl-1 mb-5">
   <h2>Featured Projects</h2>
 
-  <p>Here are some projects I've worked on that I'd like to highlight. There is more to see on the projects tabs</p>
+  <p>
+    Here are some projects I've worked on that I'd like to highlight. There is
+    more to see on the projects tabs
+  </p>
 
   {% assign featured_projects = site.posts | where: 'featured', true %}
 
   <div class="row">
     {% for post in featured_projects %}
-      <div class="col-md-6 mb-4">
-        <a href="{{ post.url | relative_url }}" class="text-decoration-none">
-          <div class="card h-100">
+    <div class="col-md-6 mb-4">
+      <a href="{{ post.url | relative_url }}" class="text-decoration-none">
+        <div class="card h-100">
+          {% if post.image %} {% assign project_image = post.image.path |
+          default: post.image %} {% assign image_fit = post.image_fit | default:
+          'cover' %}
 
-            {% if post.image %}
-              {% assign project_image = post.image.path | default: post.image %}
-              {% assign image_fit = post.image_fit | default: 'cover' %}
+          <img
+            src="{{ project_image | relative_url }}"
+            class="card-img-top"
+            alt="{{ post.title }}"
+            style="width: 100%; height: 220px; object-fit: {{ image_fit }};"
+          />
+          {% endif %}
 
-              <img
-                src="{{ project_image | relative_url }}"
-                class="card-img-top"
-                alt="{{ post.title }}"
-                style="width: 100%; height: 220px; object-fit: {{ image_fit }};"
-              >
-            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
 
-            <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
-
-              <p class="card-text">
-                {{ post.description | default: post.excerpt | strip_html | truncate: 120 }}
-              </p>
-            </div>
-
+            <p class="card-text">
+              {{ post.description | default: post.excerpt | strip_html |
+              truncate: 120 }}
+            </p>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
+    </div>
     {% endfor %}
   </div>
 </div>
